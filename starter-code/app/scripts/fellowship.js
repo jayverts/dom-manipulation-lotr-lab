@@ -22,13 +22,22 @@ var body = document.querySelector('body');
 
 // Part 1
 
+var earth = document.createElement('section');
+earth.setAttribute("id","middle-earth");
 
 function makeMiddleEarth() {
-  // create a section tag with an id of middle-earth
-  // inside, add each land as an article tag
-  // inside each article tag include an h1 with the name of the land
-  // append middle-earth to your document body
+  for (var i = 0; i < lands.length; i++) {
+    var names = document.createElement("article");
+    names.setAttribute("id",lands[i]);
+    var title = document.createElement("h1");
+    title.innerHTML = lands[i];
+    earth.append(names);
+    names.append(title);
+    console.log(lands[i]);
+  }
+body.append(earth);
 }
+
 
 makeMiddleEarth();
 
@@ -36,25 +45,63 @@ makeMiddleEarth();
 // Part 2
 
 function makeHobbits() {
-  // display an unordered list of hobbits in the shire (which is the first article tag on the page)
-  // give each hobbit a class of hobbit
+//creating an unordered list by make a variable.
+var shire = document.createElement('UL'); 
+//giving the unordered list an ID of hobbitlist
+shire.setAttribute("id", "hobbitlist"); 
+
+//running through the array hobbits entire length one by one
+for (var i = 0; i < hobbits.length; i++) { 
+  // creating the list item and putting it in a variable homes
+  var homes = document.createElement("li");
+  //giving an id to all the hobbits in order
+  homes.setAttribute("id", hobbits[i]);
+  //is giving the list items a calls of hobbit
+  homes.setAttribute("class","hobbit");
+  //is putting the unordered list onto the html
+  homes.innerHTML = hobbits[i]; 
+  // is adding the LI homes to to the UL shire
+  shire.append(homes); 
+}
+  // is grabbing the ID and adding the UL shire onto the article shire
+  document.getElementById("The Shire").append(shire);
 }
 
+makeHobbits();
 
 // Part 3
 
 function keepItSecretKeepItSafe() {
-  // create a div with an id of 'the-ring'
-  // give the div a class of 'magic-imbued-jewelry'
-  // add an event listener so that when a user clicks on the ring, the nazgulScreech function (provided) is invoked
-  // add the ring as a child of Frodo
+  //created div element and stored it in var ring
+  var ring = document.createElement('DIV');
+  //gave the ring variable an attribute of class and named it "the ring"
+  ring.setAttribute("id","the-ring");
+  //also giving the div a class of magic-imbued-jewelry
+  ring.setAttribute("class","magic-imbued-jewelry");
+  //creating event listener when id Frodo Baggins is click make screech 
+  document.getElementById("Frodo Baggins").addEventListener("click", nazgulScreech);
+  //giving frodo the ring
+  document.getElementById("Frodo Baggins").append(ring);
 }
 
+keepItSecretKeepItSafe();
 
 // Part 4
 
 
 function makeBuddies() {
+  //creating an aside tag inside a var of friends
+  var hideout = document.createElement('ASIDE');
+  //creating an id attribute for the aside element
+  hideout.setAttribute("id","home");
+  //creating an unordered list so we can store buddies inside.
+  var list = document.createElement('UL');
+  //giving the list an id of friends
+  list.setAttribute("id", "friends");
+  //creating the for loop to put the array buddies in the unordered list
+  for (var i = 0; i < buddies.length; i++);
+  //putting the buddies inside the ul
+  var buds  = 
   // create an aside tag
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
