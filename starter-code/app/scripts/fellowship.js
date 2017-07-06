@@ -1,4 +1,4 @@
-console.log("Linked.");
+  console.log("Linked.");
 
 // Dramatis Personae
 var hobbits = [
@@ -56,7 +56,7 @@ for (var i = 0; i < hobbits.length; i++) {
   var homes = document.createElement("li");
   //giving an id to all the hobbits in order
   homes.setAttribute("id", hobbits[i]);
-  //is giving the list items a calls of hobbit
+  //is giving the list items a class of hobbit
   homes.setAttribute("class","hobbit");
   //is putting the unordered list onto the html
   homes.innerHTML = hobbits[i]; 
@@ -99,29 +99,44 @@ function makeBuddies() {
   //giving the list an id of friends
   list.setAttribute("id", "friends");
   //creating the for loop to put the array buddies in the unordered list
-  for (var i = 0; i < buddies.length; i++);
-  //putting the buddies inside the ul
-  var buds  = 
+  for (var i = 0; i < buddies.length; i++){
+     //putting the buddies inside the ul
+  var buds  = document.createElement('li');
+  //giving the buddies an id of their own name
+  buds.setAttribute("id", buddies[i]);///////
+  console.log(i);
+    //putting the UL onto the HTML
+  buds.innerHTML = buddies[i]; ////////
+  //putting the list on the HTML as a child of Rivendel
+  document.getElementById("Rivendell").append(buds);
+  }
   // create an aside tag
   // attach an unordered list of the 'buddies' in the aside
   // insert your aside as a child element of rivendell
 }
+
+makeBuddies();
 
 
 // Part 5
 
 
 function beautifulStranger() {
+//changing id Strider to print "aragorn" on the webpage
+document.getElementById("Strider").innerHTML= "Aragorn";
   // change the 'Strider' textnode to 'Aragorn'
 }
 
+beautifulStranger();
 
 // Part 6
 
 function leaveTheShire() {
-  // assemble the hobbits and move them to Rivendell
+//moving the hobbit and putting them on Rivendell
+document.getElementById("Rivendell").append(document.getElementById("hobbitlist"));  
+// assemble the hobbits and move them to Rivendell
 }
-
+leaveTheShire();
 
 // Part 7
 
